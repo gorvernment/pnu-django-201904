@@ -122,5 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-import django_heroku
-django_heroku.settings(locals())
+# Monkey-Patching
+import sys
+if 'win' not in sys.platform:
+    import django_heroku
+    django_heroku.settings(locals())
