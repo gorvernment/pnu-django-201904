@@ -5,22 +5,24 @@
         <div class="col-sm-12">
             <h1>Shop List</h1>
 
-            <table class="table table-bordered table-hover">
-            {% for shop in shop_list %}
-                <tr>
-                    <td>
-                        {# TODO: URL Reverse 기능으로 개선 #}
-                        <a href="/shop/shop/{{ shop.pk }}/">
-                            {{ shop.name }}
-                        </a>
-                    </td>
-                    <td>{{ shop.desc }}</td>
-                    <td>{{ shop.address }}</td>
-                </tr>
-            {% endfor %}
-            </table>
+            <form action="" method="GET">
+                <input type="text" name="query" value="{{ query }}" placeholder="검색어를 입력해주세요." />
+                <input type="submit" value="검색" />
+            </form>
 
-            <a href="#" class="btn btn-primary">New Shop</a>
+            <ul>
+                {% for shop in shop_list %}
+                    <li>
+                        {{ shop.name }}
+                        {{ shop.address }}
+                        <a href="/shop/{{ shop.pk }}/edit/">
+                            수정
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a href="/shop/new/" class="btn btn-primary">New Shop</a>
         </div>
     </div>
 </div>

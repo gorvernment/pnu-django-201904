@@ -9,7 +9,7 @@
             {% for item in item_list %}
                 <tr>
                     <td>
-                        <a href="/shop/{{ item.pk }}/">
+                        <a href="/shop/items/{{ item.pk }}/">
                             {{ item.name }}
                         </a>
                     </td>
@@ -21,7 +21,7 @@
             {% endfor %}
             </table>
 
-            <a href="#" class="btn btn-primary">New Item</a>
+            <a href="/shop/items/new/" class="btn btn-primary">New Item</a>
         </div>
     </div>
 </div>

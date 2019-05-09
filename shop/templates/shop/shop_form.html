@@ -1,0 +1,17 @@
+<h2>New Shop</h2>
+
+ <form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" />
+</form>
+
+ {% comment %}
+    <form action="" method="GET">
+        title: <input type="text" name="title" /><br/>
+        content: <textarea name="content"></textarea><br/>
+        <input type="submit" value="저장" />
+    </form>
+{% endcomment %}
