@@ -1,17 +1,21 @@
-<h2>New Shop</h2>
+{% extends "shop/layout.html" %}
 
- <form action="" method="post">
-    {% csrf_token %}
-    <table>
-        {{ form }}
-    </table>
-    <input type="submit" />
-</form>
+{% block content %}
+    <h2>New Shop</h2>
 
- {% comment %}
-    <form action="" method="GET">
-        title: <input type="text" name="title" /><br/>
-        content: <textarea name="content"></textarea><br/>
-        <input type="submit" value="저장" />
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" />
     </form>
-{% endcomment %}
+
+    {% comment %}
+        <form action="" method="GET">
+            title: <input type="text" name="title" /><br/>
+            content: <textarea name="content"></textarea><br/>
+            <input type="submit" value="저장" />
+        </form>
+    {% endcomment %}
+{% endblock %}

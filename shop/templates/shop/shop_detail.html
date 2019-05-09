@@ -1,7 +1,27 @@
-<h1>SHOP : {{ shop.name }}</h1>
+{% extends "shop/layout.html" %}
 
-{{ shop.desc }}
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            Shop: {{ shop.name }}
+        </div>
+        <div class="card-body">
+            {% if shop.photo %}
+                <img src="{{ shop.photo.url }}" style="max-width: 100%;" />
+            {% endif %}
 
-<hr>
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <p class="card-text">
+                {{ shop.address }}
+            </p>
+            <p class="card-text">
+                {{ shop.desc }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+    </div>
 
-{{ shop.address }}
+    <hr/>
+    <a href="/shop/" class="btn btn-primary">목록</a>
+    <a href="/shop/{{ shop.pk }}/edit/" class="btn btn-success">수정</a>
+{% endblock %}
