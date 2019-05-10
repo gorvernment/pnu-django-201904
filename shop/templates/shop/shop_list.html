@@ -20,13 +20,15 @@
             {% for shop in shop_list %}
                 <tr>
                     <td>
-                        <a href="/shop/{{ shop.pk }}/">
+                        {% comment %} <a href="/shop/{{ shop.pk }}/"> {% endcomment %}
+                        <a href="{{ shop.get_absolute_url }}">
                             {{ shop.name }}
                         </a>
                     </td>
                     <td>{{ shop.address }}</td>
                     <td>
-                        <a href="/shop/{{ shop.pk }}/edit/" class="btn btn-info btn-sm">
+                        {% comment %} <a href="/shop/{{ shop.pk }}/edit/" class="btn btn-info btn-sm"> {% endcomment %}
+                        <a href="{% url 'shop:shop_edit' shop.pk %}" class="btn btn-info btn-sm">
                             수정
                         </a>
                     </td>
@@ -35,7 +37,8 @@
         </tbody>
     </table>
 
-    <a href="/shop/new/" class="btn btn-primary">
+    {% comment %} <a href="/shop/new/" class="btn btn-primary"> {% endcomment %}
+    <a href="{% url 'shop:shop_new' %}" class="btn btn-primary">
         New Shop
     </a>
 {% endblock %}

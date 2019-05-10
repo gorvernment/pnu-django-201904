@@ -45,7 +45,8 @@ def shop_new(request):
         form = ShopForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/shop/')
+            #return redirect('/shop/')
+            return redirect('/shop/{}/'.format(shop.pk))
     else:
         form = ShopForm()
     return render(request, 'shop/shop_form.html', {
@@ -55,14 +56,19 @@ def shop_new(request):
 # shop_new = CreateView.as_view(model=Shop, form_class=ShopForm,
 #                               success_url='/shop/')
 
+# shop_new = CreateView.as_view(model=Shop, form_class=ShopForm)
+
+
 def shop_edit(request, pk):
     shop = Shop.objects.get(pk=pk)
 
     if request.method == 'POST':
         form = ShopForm(request.POST, request.FILES, instance=shop)
         if form.is_valid():
-            form.save()
-            return redirect('/shop/')
+            shop = form.save()
+            #return redirect('/shop/')
+            return redirect('/shop/{}/'.format(shop.pk))
+            #return redirect(shop)
     else:
         form = ShopForm(instance=shop)
     return render(request, 'shop/shop_form.html', {
