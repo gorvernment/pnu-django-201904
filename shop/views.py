@@ -44,7 +44,7 @@ def shop_new(request):
     if request.method == 'POST':
         form = ShopForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            shop = form.save()
             #return redirect('/shop/')
             return redirect('/shop/{}/'.format(shop.pk))
     else:
