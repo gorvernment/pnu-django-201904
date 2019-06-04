@@ -20,6 +20,10 @@ def post_detail(request, pk):
 def comment_new(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
 
+    # comment_list = post.comment_set.all()
+    # # comment_list = Comment.objects.filter(post=post)
+    # comment_list = comment_list.order_by('-id')
+    
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
