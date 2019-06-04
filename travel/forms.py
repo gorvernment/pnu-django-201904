@@ -7,3 +7,6 @@ class CommentForm(forms.ModelForm):
         model = Comment
         #fields = '__all__'
         fields = ['message']
+        widgets = {
+            'message':forms.Textarea(attrs={'rows':3})
+        }

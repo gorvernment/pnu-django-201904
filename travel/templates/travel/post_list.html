@@ -1,12 +1,17 @@
-<h1>Travel: Post List</h1>
+{% extends "travel/layout.html" %}
+{% load bootstrap4 %}
 
- <ul>
-{% for post in post_list %}
-    <li>
-        #{{ post.pk }}
-        <a href="{% url 'travel:post_detail' post.pk %}">
-            {{ post.title }}
-        </a>
-    </li>
-{% endfor %}
-</ul>
+{% block content %}
+    <h1>Travel: Post List</h1>
+
+    <ul>
+    {% for post in post_list %}
+        <li>
+            #{{ post.pk }}
+            <a href="{% url 'travel:post_detail' post.pk %}">
+                {{ post.title }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
