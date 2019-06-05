@@ -21,12 +21,12 @@ def root(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('accounts.urls')),
     path('shop/', include('shop.urls')),
     path('weblog/', include('blog.urls')),
     path('travel/', include('travel.urls')),
     path('', root, name='root'),
-    path('summernote/', include('django_summernote.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
