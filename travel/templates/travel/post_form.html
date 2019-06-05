@@ -1,0 +1,25 @@
+{% extends "travel/layout.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h2>New Travel Post</h2>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- {% bootstrap_form form %}-->
+
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" />
+    </form>
+
+    {% comment %}
+        <form action="" method="GET">
+            title: <input type="text" name="title" /><br/>
+            content: <textarea name="content"></textarea><br/>
+            <input type="submit" value="저장" />
+        </form>
+    {% endcomment %}
+{% endblock %}
