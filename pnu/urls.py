@@ -26,6 +26,7 @@ urlpatterns = [
     path('weblog/', include('blog.urls')),
     path('travel/', include('travel.urls')),
     path('', root, name='root'),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

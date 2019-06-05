@@ -84,7 +84,8 @@ def comment_new(request, post_pk):
             comment.author = request.user
             comment.post = post
             comment.save()
-            return redirect('travel:post_detail', post_pk)
+            #return redirect('travel:post_detail', post_pk)
+            return redirect(post)
     else:
         form = CommentForm()
     return render(request, 'travel/comment_form.html', {'form': form})
@@ -97,8 +98,9 @@ def comment_edit(request, post_pk, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
-            form.save()
-            return redirect('travel:post_detail', post_pk)
+            comment = form.save()
+            #return redirect('travel:post_detail', post_pk)
+            return redirect(comment.post)
     else:
         form = CommentForm(instance=comment)
 
@@ -109,7 +111,8 @@ def comment_delete(request, post_pk, pk):
     comment = get_object_or_404(Comment, author=request.user, pk=pk)
     if request.method == 'POST':
         comment.delete()  # 호출 즉시 DELETE 쿼리 수행
-        return redirect('travel:post_detail', post_pk)
+        #return redirect('travel:post_detail', post_pk)
+        return redirect(comment.post)
     return render(request, 'travel/post_confirm_delete.html', {
         'comment': comment,
     })
