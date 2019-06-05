@@ -1,0 +1,9 @@
+<input type="text" id="id_title" />
+<div id="id_title_counter"></div>
+
+<script>
+    document.querySelector('#id_title').addEventListener('input', function() {
+        var label = this.value.length + '글자';
+        document.querySelector('#id_title_counter').innerHTML = label;
+    });
+</script>
