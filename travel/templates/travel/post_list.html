@@ -34,4 +34,11 @@
             </div>
         {% endfor %}
     </div>
+    {% include "travel/layout_foot.html" %}
+{% endblock %}
+
+{% block footer %}
+    자식이 정의한 footer
+    <br>
+    {{ block.super }}
 {% endblock %}
