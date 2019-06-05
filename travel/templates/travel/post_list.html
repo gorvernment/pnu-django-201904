@@ -21,7 +21,7 @@
                         <strong class="d-inline-block mb-2 text-primary">World</strong>
                         <h3 class="mb-0">{{ post.title }}</h3>
                         <div class="mb-1 text-muted">{{ post.created_at|date:"M. Y" }}</div>
-                        <p class="card-text mb-auto">{{ post.content|truncatewords:10 }}</p>
+                        <p class="card-text mb-auto">{{ post.content|safe|truncatewords:10 }}</p>
                         <a href="{% url 'travel:post_detail' post.pk %}" class="stretched-link">Continue reading</a>
                     </div>
                     <div class="col-auto d-none d-lg-block">
