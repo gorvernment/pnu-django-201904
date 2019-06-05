@@ -47,9 +47,16 @@
     <script>
         $(function() {
             $.get("{% url 'travel:comment_list' post.pk %}").done(function(resp) {
-                $("#comment_list").html(resp);
-
+                //$("#comment_list").html(resp);
                 //console.log(resp);
+
+                var comment_list = resp;
+                 $.each(comment_list, function(index, comment) {
+                    var html = "<tr><td>" + comment.message + "</td></tr>";
+                    $('#comment_list').append(html);
+                })
+                // $("#comment_list").html(resp);
+
             });
             
             // 문서가 준비되었을 때 호출
