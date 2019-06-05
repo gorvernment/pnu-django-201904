@@ -44,6 +44,14 @@ def post_edit(request, pk):
         'form' : form,
     })
 
+def comment_list(request, post_pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    qs = Comment.objects.all().filter(post__pk=post_pk)
+    return render(request, 'travel/comment_list.html', {
+        'post':post,
+        'comment_list': qs,
+    })
+
 @login_required
 def comment_new(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
