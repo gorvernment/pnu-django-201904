@@ -1,7 +1,7 @@
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 from .models import Comment, Post
-
+from .widgets import TextCounterInput
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -17,5 +17,6 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = '__all__'
         widgets = {
+            'title': TextCounterInput,
             'content': SummernoteWidget,
         }
